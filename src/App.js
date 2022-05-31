@@ -9,7 +9,7 @@ function App() {
       <Logo />
       <H1 value="Word Predictor" />
       <Notepad placeholder="Start typing..." />
-      <Predictions depth={5} />
+      <Predictions depth={3} />
     </div>
   );
 }

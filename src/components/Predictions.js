@@ -1,4 +1,7 @@
-function Predictions({ depth = 1, predictions = ["my", "name", "is"] }) {
+import { useState } from "react";
+
+function Predictions({ depth = 1 }) {
+  const [predictions, setPredictions] = useState(["my", "name", "is"]);
   return (
     <>
       <div className="w-full py-2 bg-gray-400 shadow-lg shadow-black" />
@@ -12,14 +15,17 @@ function Predictions({ depth = 1, predictions = ["my", "name", "is"] }) {
             <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-3 w-3 bg-green-400" />
           </span>
-          {predictions.map((word, key) => {
-            return (
+          {predictions.map((word, key) => (
+            <button
               // eslint-disable-next-line react/no-array-index-key
-              <p key={key} className="p-1 text-left bg-gray-300 lowercase rounded">
-                {word}
-              </p>
-            );
-          })}
+              key={key}
+              type="button"
+              className="p-1 text-left bg-gray-300 lowercase rounded"
+              onClick={() => predictions.shift() && setPredictions([...predictions])}
+            >
+              {word}
+            </button>
+          ))}
         </div>
       </div>
     </>
