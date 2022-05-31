@@ -1,18 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import H1 from "./components/H1";
+import Logo from "./components/Logo";
+import Notepad from "./components/Notepad";
+import Predictions from "./components/Predictions";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="p-4 bg-black rounded-lg">
-          You can edit the <code>src/App.js</code> file and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col items-center justify-center">
+      <Logo />
+      <H1 value="Word Predictor" />
+      <Notepad placeholder="Start typing..." />
+      <Predictions depth={5} />
     </div>
   );
 }
